@@ -1,0 +1,14 @@
+depinst()
+{
+        pip install pygeoip
+        wget -N -q http://geolite.maxmind.com/download/geoip/database/GeoLiteCity.dat.gz
+        gzip -d GeoLiteCity.dat.gz
+}
+addpath()
+{
+        if [ ! -d "~/bin" ]; then
+                mkdir ~/bin
+        fi
+	cp 
+}
+

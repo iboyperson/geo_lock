@@ -1,2 +1,2 @@
-cd ~/bin
-geo_lock.py $1
+cd ~/scripts/geo_lock
+./geo_lock.py $1
