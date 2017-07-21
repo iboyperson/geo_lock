@@ -8,13 +8,12 @@
     $$    $$/ $$       |$$    $$/______ $$       |$$    $$/ $$    $$/ $$ | $$  |
      $$$$$$/  $$$$$$$$/  $$$$$$//      |$$$$$$$$/  $$$$$$/   $$$$$$/  $$/   $$/
                                 $$$$$$/
-**≠=≠=≠=≠=≠≠=≠=≠=≠=≠≠=≠=≠=≠=≠≠=≠=≠=≠=≠≠=≠=≠=≠=≠≠=≠=≠=≠=≠≠=≠=≠=≠=≠≠=≠=≠=≠**
+**≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠**
 
-#We are not responsible for any illegal actions you may partake in using this script
+### We are not responsible for any illegal actions you may partake in using this script
 
-**≠=≠=≠=≠=≠≠=≠=≠=≠=≠≠=≠=≠=≠=≠≠=≠=≠=≠=≠≠=≠=≠=≠=≠≠=≠=≠=≠=≠≠=≠=≠=≠=≠≠=≠=≠=≠**
+**≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠=≠**
 
-**INSTALLATION:** git clone and run geo_install
+    Installation: git clone and run geo_install
 
-**USAGE** geo_lock <ip address>
-                                             
+    Usage: geo_lock (ip address)
