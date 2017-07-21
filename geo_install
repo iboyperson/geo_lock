@@ -1,14 +1,55 @@
+#!/bin/bash
 depinst()
 {
-        pip install pygeoip
+        echo "[Installing pygeoip]"
+	pip install pygeoip
+	echo "[Fetching GeoLiteCity]"
         wget -N -q http://geolite.maxmind.com/download/geoip/database/GeoLiteCity.dat.gz
         gzip -d GeoLiteCity.dat.gz
 }
 addpath()
 {
-        if [ ! -d "~/bin" ]; then
-                mkdir ~/bin
-        fi
-	cp 
+	mkdir -p ~/bin;
+	mkdir -p ~/scripts;
+	mkdir -p ~/scripts/geo_lock ;
+	mv geo_lock ~/bin/ || :;
+	chmod +x ~/bin/geo_lock;
+	mv geo_lock.py ~/scripts/geo_lock/ || :;
+	chmod +x ~/scripts/geo_lock/geo_lock.py;
+	mv GeoLiteCity.dat ~/scripts/geo_lock || :;
+	export PATH=$PATH:~/bin
+	~/.profile
 }
+getfiles()
+{
+	if [ ! -f "geo_lock" ]; then
+		wget https://raw.githubusercontent.com/iboyperson/geo_lock/master/geo_lock
+	fi
+	if [ ! -f "geo_lock.py" ]; then
+        	wget https://raw.githubusercontent.com/iboyperson/geo_lock/master/geo_lock.py
+	fi
+}
+getfiles >/dev/null
+read -p "Do you want to install dependencies?(y/n) " DEP
+if [ "$DEP" = "y" ]; then
+        echo "[Installing dependencies]"
+        depinst >/dev/null
+fi
+read -p "Do you want to add Geo_Lock to path?(y/n) " PTH
+if [ "$PTH" = "y" ]; then
+	addpath >/dev/null
+else
+	exit
+fi
+echo "[Cleaning Up]"
+if [ -f "geo_lock" ]; then
+	rm geo_lock;
+fi
+if [ -f "geo_lock.py" ]; then
+        rm geo_lock.py;
+fi
+if [ -f "GeoLitCity.dat" ]; then
+        rm GeoLiteCity.dat;
+fi
+
 
