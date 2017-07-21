@@ -2,47 +2,52 @@
 depinst()
 {
         echo -e "\e[93m[Installing pygeoip]"
-	pip install pygeoip
-	echo -e "\e[93m[Fetching GeoLiteCity]"
-        wget -N -q http://geolite.maxmind.com/download/geoip/database/GeoLiteCity.dat.gz
-        gzip -d GeoLiteCity.dat.gz
+	pip install pygeoip >/dev/null
 }
 addpath()
 {
+	echo -e "\e[93m[Creating Directories]"
 	mkdir -p ~/bin;
 	mkdir -p ~/scripts;
 	mkdir -p ~/scripts/geo_lock ;
+	echo -e "\e[93m[Moving Files]"
 	mv geo_lock ~/bin/ || :;
 	chmod +x ~/bin/geo_lock;
 	mv geo_lock.py ~/scripts/geo_lock/ || :;
 	chmod +x ~/scripts/geo_lock/geo_lock.py;
 	mv GeoLiteCity.dat ~/scripts/geo_lock || :;
+	echo -e "\e[93m[Exporting to Path]"
 	export PATH=$PATH:~/bin
-	~/.profile
+	echo -e "\e[93m[Refreshing Path]"
+	. ~/.profile
 }
 getfiles()
 {
+	echo -e "\e[93m[Fetching Files]"
 	if [ ! -f "geo_lock" ]; then
 		wget -q https://raw.githubusercontent.com/iboyperson/geo_lock/master/geo_lock
 	fi
 	if [ ! -f "geo_lock.py" ]; then
         	wget -q https://raw.githubusercontent.com/iboyperson/geo_lock/master/geo_lock.py
 	fi
+	if [ ! -f "GeoLiteCity.dat" ]; then
+		wget -N -q http://geolite.maxmind.com/download/geoip/database/GeoLiteCity.dat.gz
+		gzip -d GeoLiteCity.dat.gz
+	fi
 }
 getfiles
-echo -e "\e[32m\c"
-read -p "Do you want to install dependencies?(y/n) " DEP
+echo -e "\e[34mDo you want to install dependencies?(\e[32my\e[34m/\e[91mn\e[34m)\e[39m\c"; read DEP
 echo -e "\e[91m\c"
 if [ "$DEP" = "y" ]; then
-        echo -e "\e[93m[Installing dependencies]"
+        echo -e "\e[93m[Installing Dependencies]"
 	echo -e "\e[91m\c"
-        depinst >/dev/null
+        depinst
 fi
-echo -e "\e[32m\c"
-read -p "Do you want to add Geo_Lock to path?(y/n) " PTH
+echo -e "\e[34mDo you want to add Geo_Lock to path?(\e[32my\e[34m/\e[91mn\e[34m)\e[39m\c"; read PTH
 echo -e "\e[91m\c"
 if [ "$PTH" = "y" ]; then
-	addpath >/dev/null
+	echo -e "\e[93m[Copying to Path]"
+	addpath
 else
 	exit
 fi
