@@ -48,18 +48,18 @@ echo -e "\e[91m\c"
 if [ "$PTH" = "y" ]; then
 	echo -e "\e[93m[Copying to Path]"
 	addpath
-else
-	exit
 fi
-echo -e "\e[93m[Cleaning Up]"
-if [ -f "geo_lock" ]; then
-	rm geo_lock;
+echo -e "\e[34mDo you want to clean up files?(\e[32my\e[34m/\e[91mn\e[34m)\e[39m\c"; read CLN
+echo -e "\e[91m\c"
+if [ "$CLN" = "y" ]; then
+  echo -e "\e[93m[Cleaning Up]"
+  if [ -f "geo_lock" ]; then
+	   rm geo_lock;
+  fi
+  if [ -f "geo_lock.py" ]; then
+    rm geo_lock.py;
+  fi
+  if [ -f "GeoLitCity.dat" ]; then
+    rm GeoLiteCity.dat;
+  fi
 fi
-if [ -f "geo_lock.py" ]; then
-        rm geo_lock.py;
-fi
-if [ -f "GeoLitCity.dat" ]; then
-        rm GeoLiteCity.dat;
-fi
-
-
