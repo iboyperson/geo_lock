@@ -1,2 +1,7 @@
-GeoLiteCity.dat
+*.dat
+*.gz
 *.save
+*.pyc
+
+\ipv4
+\ipv6
