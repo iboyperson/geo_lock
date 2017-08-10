@@ -1,3 +1,0 @@
-#!/bin/bash
-cd ~/scripts/geo_lock
-./geo_lock.py $1
