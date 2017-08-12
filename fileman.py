@@ -23,7 +23,7 @@ def file_check(iptype):
     elif iptype == "ipv6":
         ipv6_check()
     else:
-        print '[Error: Invalid IP]'
+        print ('[Error: Invalid IP]')
 
 def ipv4_check():
     if ipv4_path.exists() == False:
