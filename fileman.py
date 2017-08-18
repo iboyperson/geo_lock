@@ -30,7 +30,6 @@ def file_check(iptype):
     else:
         print ('[Error: Invalid IP]')
 
-
 def ipv4_check():
     if ipv4_path.exists() == False:
         os.makedirs("ipv4")
