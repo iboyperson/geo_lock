@@ -14,7 +14,7 @@ except NameError:
 try:
 	ip = str(sys.argv[1])
 except:
-	ip = raw_input('\x1b[1;33m' + 'Input IP:' + '\x1b[0m' + " ")
+	ip = input('\x1b[1;33m' + 'Input IP:' + '\x1b[0m' + " ")
 
 def get_banner():
 	ascii = open('banner.txt', 'r')
@@ -28,7 +28,7 @@ os.system('clear')
 try:
 	try:
 		#Prints the GEO_LOCK ascii art
-		print get_banner()
+		print (get_banner())
 		print ('\x1b[1;33m'+"IP:" + '\x1b[0m' + '               ' + data['ip'])
 		print ('\x1b[1;33m'+"Host:" + '\x1b[0m' + '             ' + data['host'])
 		print ('\x1b[1;33m'+"City:" + '\x1b[0m' + '             ' + data['city'])

@@ -1,6 +1,10 @@
 import os
 import sys
-import urllib
+if sys.version_info >= (3,0):
+    import urllib.request
+    urllib = urllib.request
+else:
+    import urllib
 import gzip
 if sys.version_info >= (3,0):
     from pathlib import Path
@@ -48,10 +52,10 @@ def ipv6_check():
         os.makedirs("ipv6")
     os.chdir("ipv6")
     if not GeoLite_url.exists() == False:
-        urllib.urlretrieve(ipv6_GeoLite_url, "GeoLiteCity.dat.gz")
+        urllib.request.urlretrieve(ipv6_GeoLite_url, "GeoLiteCity.dat.gz")
         unzip('GeoLiteCity.dat.gz', 'GeoLiteCity.dat')
     if not GeoASN_path.exists() == False:
-        urllib.urlretrieve(ipv6_GeoASN_url, "GeoIPASNum.dat.gz")
+        urllib.request.urlretrieve(ipv6_GeoASN_url, "GeoIPASNum.dat.gz")
         unzip('GeoIPASNum.dat.gz', 'GeoIPASNum.dat')
     os.chdir("..")
 
