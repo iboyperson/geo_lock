@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 function install 
 {
   if [ ! -d //home/iboyperson/scripts/geo_lock/testenv/usr/share/geo_lock ]
